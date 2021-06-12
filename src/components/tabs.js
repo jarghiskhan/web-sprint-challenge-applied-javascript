@@ -1,3 +1,5 @@
+const axios = require("axios").default;
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,7 +15,43 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-}
+
+  const divTopics = document.createElement("div");
+  divTopics.classList.add("topics");
+
+  function isURL(string) {
+    const pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+    return !!pattern.test(string);
+  }
+
+  if (isURL(topics)) {
+    axios.get(topics).then(function (response) {
+      response.data.topics.forEach((element) => {
+        const divTab = document.createElement("div");
+        divTab.classList.add("tab");
+        divTab.textContent = element;
+        divTopics.appendChild(divTab);
+      });
+    });
+  } else {
+    topics.forEach((element) => {
+      const divTab = document.createElement("div");
+      divTab.classList.add("tab");
+      divTab.textContent = element;
+      divTopics.appendChild(divTab);
+    });
+  }
+
+  return divTopics;
+};
 
 const tabsAppender = (selector) => {
   // TASK 4
@@ -23,6 +61,8 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-}
+  const selectorNode = document.querySelector(selector);
+  selectorNode.append(Tabs(`https://lambda-times-api.herokuapp.com/topics`));
+};
 
-export { Tabs, tabsAppender }
+export { Tabs, tabsAppender };
