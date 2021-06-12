@@ -76,7 +76,11 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    Document Object model, a cross-platform interface that processes XML and HTML as a tree structure. On the tree structure are  nodes that represent part of the document.
 2. What is an event?
+    Thins that happen to an HTML element
 3. What is an event listener?
+    The javascript that listens for events and are meant to "do something" when that event occurs.
 4. Why would we convert a NodeList into an Array?
+
 5. What is a component?
