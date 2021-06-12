@@ -1,3 +1,5 @@
+const axios = require("axios").default;
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,35 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const divCard = document.createElement("div");
+  divCard.classList.add("card");
+
+  const divHeadline = document.createElement("div");
+  divHeadline.classList.add("headline");
+  divHeadline.textContent = `${article.headline}`;
+  divCard.appendChild(divHeadline);
+
+  const divAuthor = document.createElement("div");
+  divAuthor.classList.add("author");
+  divCard.appendChild(divAuthor);
+
+  const divImgContainer = document.createElement("div");
+  divImgContainer.classList.add("img-container");
+  divAuthor.appendChild(divImgContainer);
+
+  const imgAuthorPhoto = document.createElement("img");
+  imgAuthorPhoto.setAttribute("src", `${article.authorPhoto}`);
+  divImgContainer.appendChild(imgAuthorPhoto);
+
+  const spanAuthorName = document.createElement("span");
+  spanAuthorName.textContent = `${article.authorName}`;
+  divAuthor.appendChild(spanAuthorName);
+
+  return divCard;
+};
+function getHeadlineOnClick() {
+  const headlineText = this.querySelector(".headline").textContent;
+  console.log(headlineText);
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +59,23 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
+  const selectorNode = document.querySelector(selector);
+  axios
+    .get(`https://lambda-times-api.herokuapp.com/articles`)
+    .then(function (response) {
+      const responseDataArray = Object.entries(response.data.articles);
+      responseDataArray.forEach((element) => {
+        for (let i = 0; i < element[1].length; i++) {
+          let cardData = element[1][i];
+          const newCard = Card(cardData);
+          selectorNode.appendChild(newCard);
+        }
+      });
+      const cardElement = document.querySelectorAll(".card");
+      cardElement.forEach((element) => {
+        element.addEventListener("click", getHeadlineOnClick);
+      });
+    });
+};
 
-export { Card, cardAppender }
+export { Card, cardAppender };

@@ -10,10 +10,10 @@ You are not allowed to collaborate during the sprint challenge.
 
 ## Project Set Up
 
-- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
+- [x] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
+- [x] Open the assignment in Canvas and click on the "Set up git" option.
+- [x] Follow instructions to set up Codegrade's Webhook and Deploy Key.
+- [] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
 - [ ] Check to see that Codegrade has accepted your git submission.
 
 For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
@@ -30,18 +30,18 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ### Instructions
 
-- [ ] Navigate to the root of the project with your command line.
-- [ ] Run `npm install` to download the dependencies listed in the `package.json` file.
-- [ ] Run `npm start` to compile the project and serve it.
-- [ ] Navigate Chrome to the URL indicated in the output of the `npm start` command.
-- [ ] In a separate terminal, run `npm test` to run tests.
+- [x] Navigate to the root of the project with your command line.
+- [x] Run `npm install` to download the dependencies listed in the `package.json` file.
+- [x] Run `npm start` to compile the project and serve it.
+- [x] Navigate Chrome to the URL indicated in the output of the `npm start` command.
+- [x] In a separate terminal, run `npm test` to run tests.
 
 **Steps Required for MVP:**
 
-- [ ] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
-- [ ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
-- [ ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [x] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
+- [x] Steps 1 and 2 are explained inside the `src/components/header.js` file.
+- [x] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
+- [x] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
 **Important Notes:**
 
@@ -76,7 +76,12 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    Document Object model, a cross-platform interface that processes XML and HTML as a tree structure. On the tree structure are  nodes that represent part of the document.
 2. What is an event?
+    Thins that happen to an HTML element
 3. What is an event listener?
+    The javascript that listens for events and are meant to "do something" when that event occurs.
 4. Why would we convert a NodeList into an Array?
+    So that it's easier to manipulate the data within. Allows for .map and forEach funtions to run on it.
 5. What is a component?
+    Code within javascript that allows for reuse and helps keep code DRY.
